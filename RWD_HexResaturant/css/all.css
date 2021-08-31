@@ -1,0 +1,1336 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+* {
+    box-sizing: border-box;
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* css reset end */
+
+
+
+
+/* 
+======================================================
+---------------------- layout start ------------------
+======================================================
+*/
+
+.clearfix {
+    /* content: " ";
+    display: table; */
+    clear: both;
+}
+
+body {
+    font-family: 微軟正黑體;
+    color: #3D1101;
+}
+
+.wrap {
+    max-width: 1024px;
+    margin: 0 auto;
+    background: rgb(239, 233, 231)
+}
+
+.top {
+    background: rgb(239, 233, 231);
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 6;
+}
+
+.header {
+    margin-bottom: 50px;
+}
+
+
+
+/* 
+================
+-- menu start --
+================
+*/
+
+.menu {
+    height: 56px;
+    background: black;
+    padding: 16px 46px;
+}
+
+.menu h1 {
+    display: inline-block;
+}
+
+.menu h1 .logo {
+    display: block;
+    background-image: url(../img/logo_w@svg.svg);
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 25px;
+    text-indent: 101%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.menu .topmenu {
+    float: right;
+    display: block;
+    background: black;
+}
+
+.menu .topmenu li {
+    float: left;
+}
+
+.menu .topmenu li a {
+    display: block;
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: orangered;
+}
+
+.menu .topmenu a:hover {
+    border-bottom: 5px solid burlywood;
+}
+
+.menu .menu-bar {
+    display: none;
+}
+
+@media(max-width:569px) {
+
+
+    .menu .topmenu.show {
+        max-height: 100px;
+        /*3. 給予高度*/
+    }
+
+    .menu .topmenu {
+        overflow: hidden;
+        /*2.超過高度的範圍,則隱藏 => 1+2 可隱藏 */
+        max-height: 0px;
+        /*1.先將高度設為0=>並利用此高度做漸變動畫 */
+        transition: max-height 1s;
+        position: absolute;
+        z-index: 1;
+        top: 56px;
+        right: 0;
+        left: 0;
+
+    }
+
+    .menu .topmenu li {
+        padding-right: 25px;
+        float: none;
+
+    }
+
+    .menu .topmenu li a {
+        width: 100%;
+        text-align: right;
+        line-height: 30px;
+    }
+
+    .menu .topmenu a:hover {
+        background: burlywood;
+        color: white;
+    }
+
+    /*顯示漢堡選單*/
+    .menu .menu-bar {
+        display: block;
+        float: right;
+    }
+
+}
+
+
+/* 
+==================
+-- banner start --
+==================
+*/
+
+
+.banner {
+    max-width: 1024px;
+    height: 420px;
+    background-image: url(../img/header_desktop.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    /*收放都讓圖片都在center位置*/
+    position: relative;
+}
+
+.banner-text {
+    width: 460px;
+    height: 152px;
+    background: rgba(0, 0, 0, 0.35);
+    color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -76px 0 0 -230px;
+    text-align: center;
+    padding: 20px;
+}
+
+.banner-text h3 {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.banner-text p {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+@media(max-width:569px) {
+    .banner {
+        background-image: url(../img/header_mobile.png);
+    }
+
+    .banner-text {
+        width: 300px;
+        height: 194px;
+        margin: -97px 0 0 -150px;
+
+    }
+}
+
+
+/* 
+==================
+-- footer start --
+==================
+*/
+
+.footer {
+    padding: 30px 20px;
+    font-size: 14px;
+}
+
+.footer .about,
+.footer .contact,
+.footer .social {
+    width: 30.33333%;
+    float: left;
+    margin-right: 3%;
+    line-height: 20px;
+}
+
+.footer h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer .contact li {
+    list-style: disc;
+    list-style-position: inside;
+
+}
+
+.footer .social {
+    text-align: right;
+}
+
+.footer .social .logo_brown {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer .social .font-awesome {
+    font-size: 32px;
+}
+
+.footer .twitter {
+    color: #41ABE1;
+}
+
+.footer .fb {
+    color: #3A5795;
+}
+
+
+.footer .google {
+    color: red;
+}
+
+
+@media(max-width:569px) {
+
+
+    .footer .about,
+    .footer .contact,
+    .footer .social {
+        width: 98.33333%;
+        margin-right: 2%;
+        float: none;
+        margin-bottom: 40px;
+        font-weight: 800;
+    }
+
+    .footer h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+}
+
+
+/* 
+======================================================
+---------------------- layout end ------------------
+======================================================
+*/
+
+
+/* 
+==========================================================
+---------------------- index content start --------------
+==========================================================
+*/
+
+/* .content {
+    height: auto;
+} */
+
+/* skill */
+.skill {
+    text-align: center;
+    position: relative;
+    margin-bottom: 31px;
+
+}
+
+.skill p {
+    font-weight: bold;
+    display: inline-block;
+    line-height: 32px;
+    background: rgb(239, 233, 231);
+    position: relative;
+    z-index: 2;
+    padding: 13px;
+}
+
+.skill hr {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 0 0 -230px;
+}
+
+@media(max-width:569px) {
+
+    .skill {
+        margin-bottom: 0px;
+    }
+
+    .skill p {
+        font-size: 20px;
+    }
+
+    .skill hr {
+        display: none;
+    }
+}
+
+
+
+/* skill-list */
+
+.skill-list {
+
+    float: left;
+    margin-bottom: 50px;
+    /* 2018.11.13 */
+    /* word-wrap: break-word; */
+    /* word-break: break-all */
+}
+
+.skill-list li {
+    padding: 0 5%;
+    max-width: 33.33333%;
+    float: left;
+    /* margin-right: 2%; */
+}
+
+.skill-list img {
+    display: block;
+    margin: 0 auto;
+    clip-path: circle(50%);
+    margin-bottom: 20px;
+}
+
+.skill-list h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.skill-list p {
+    line-height: 18px;
+    font-size: 16px;
+}
+
+/* 可試著在767px 就變成單欄 modify by 2018.12.15 */
+@media(max-width:767px) {
+
+
+    .skill-list {
+        float: none;
+        margin: 0 auto;
+    }
+
+    .skill-list li {
+        max-width: 100%;
+        margin-right: 0;
+        float: none;
+        padding: 30px 40px;
+    }
+
+    .skill-list h4 {
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .skill-list p {
+        line-height: 22px;
+        font-size: 18px;
+    }
+}
+
+
+/* chef */
+
+.chef {
+
+    max-width: 1024px;
+    color: #EFE9E7;
+    background-color: #3D1101;
+    margin-bottom: 50px;
+}
+
+
+.chef li {
+    width: 50%;
+    float: left;
+}
+
+.chef .chef-img {
+    max-width: 100%;
+    height: 460px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-image: url(../img/main_chef_brown.png);
+}
+
+.chef-introduce {
+    padding: 40px 20px 0 20px;
+}
+
+
+.chef-introduce h5 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.chef-introduce span {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 25px;
+    /*行內元素無法使用margin&padding -top/bottom,需轉換塊及元素*/
+}
+
+.chef-introduce p {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* 可試著在767px 就變成單欄 modify by 2018.12.15 */
+/* @media(max-width:800px) and (min-width:570px) {
+    .chef li {
+        width: 49%;
+
+    }
+
+    .chef .chef-img {
+        margin-left: 10px;
+    }
+
+    .chef-introduce h5 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .chef-introduce span {
+        font-size: 18px;
+        margin-bottom: 20px;
+
+    }
+
+    .chef-introduce p {
+        font-size: 16px;
+        line-height: 20px;
+    }
+} */
+
+
+@media(max-width:767px) {
+
+    .chef li {
+        width: 100%;
+        float: none;
+    }
+
+    .chef-introduce {
+        padding: 40px 20px 20px 20px;
+    }
+
+}
+
+
+
+
+/* feedback */
+.feedback {
+    margin-bottom: 50px;
+}
+
+.feedback h4 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feedback ul {
+    float: left;
+    padding: 0 4.33333%;
+}
+
+.feedback li {
+    text-align: left;
+    float: left;
+    width: 31.33333%;
+    margin-right: 2%;
+}
+
+.feedback .cust img {
+    clip-path: circle(50%);
+    vertical-align: middle;
+    margin-right: 13px;
+}
+
+.feedback .cust span {
+    font-weight: bold;
+}
+
+.feedback li p {
+    margin-left: 84px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.feedback .cust-name {
+    text-align: right;
+}
+
+/* 可試著在767px 就變成單欄 modify by 2018.12.15 */
+/* 
+@media(max-width:800px) and (min-width:570px) {
+
+    .feedback ul {
+        float: left;
+        padding: 0 1.33333%;
+    }
+
+    .feedback li {
+        text-align: left;
+        float: left;
+        width: 31.33333%;
+        margin-right: 1%;
+    }
+
+    .feedback .cust img {
+        margin-right: 3%;
+    }
+
+    .feedback li p {
+        margin-left: 80px;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+} */
+
+@media(max-width:767px) {
+
+    .feedback ul {
+        float: none;
+    }
+
+    .feedback li {
+        float: none;
+        width: 98%;
+    }
+
+}
+
+
+/* booking */
+
+.booking {
+    padding: 50px 42px;
+    background-color: rgba(250, 250, 250, 0.70);
+}
+
+.booking h4 {
+    font-size: 24px;
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 38px;
+}
+
+.location,
+.information {
+    width: 48%;
+    float: left;
+}
+
+.location {
+    max-width: 462px;
+    height: 388px;
+    background-image: url(../img/Map.png);
+    background-position: center left;
+    background-size: cover;
+    border: 1px solid rgb(226, 223, 223);
+}
+
+.information {
+    margin-left: 20px;
+    position: relative;
+}
+
+.information label {
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 6px;
+
+}
+
+.information input:not([type="radio"]):not([type="submit"]):not([type="reset"]) {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: inset 0px 1px 0px 0px #ECECEC;
+    border-radius: 3px;
+    height: 32px;
+    margin-bottom: 12px;
+    padding: 10px;
+}
+
+.information .reset {
+    width: 70px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 3px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+}
+
+.information .btn {
+    width: 70px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 3px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: -50px;
+    right: 80px;
+}
+
+.information .btn:hover,
+.information .reset:hover {
+
+    background: #F56C23;
+
+}
+
+@media(max-width:800px) and (min-width:570px) {
+    .booking {
+        padding: 50px 15px;
+    }
+
+    .information .reset {
+        right: 10px;
+    }
+
+    .information .btn {
+        right: 90px;
+    }
+
+}
+
+@media(max-width:569px) {
+
+    .booking {
+        padding: 43px 11px 80px 11px;
+    }
+
+    .booking h4 {
+        margin-bottom: 30px;
+    }
+
+    .location,
+    .information {
+        width: 99%;
+        float: none;
+    }
+
+    .location {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .information {
+        margin-left: 0px;
+
+    }
+
+}
+
+/* 
+==========================================================
+---------------------- index content end --------------
+==========================================================
+*/
+
+/* 
+==========================================================
+---------------------- menu content start --------------
+==========================================================
+*/
+
+.menu-content {
+    max-width: 1024px;
+    margin: 48px 40px 50px 40px;
+
+}
+
+.sidebar {
+    width: 220px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 26px;
+}
+
+.sidebar .fa-leaf {
+    font-size: 28px;
+}
+
+.sidebar span {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 22px;
+    margin-left: 15px;
+
+}
+
+.sidebar li {
+    border-bottom: 1px solid #3D1101;
+}
+
+.sidebar a {
+    display: block;
+    height: 32px;
+    text-decoration: none;
+    line-height: 32px;
+    color: #3D1101;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.sidebar a:hover {
+    background: #3D1101;
+    color: white;
+}
+
+
+/* 可試著在767px 就變成單欄 modify by 2018.12.15 */
+@media(max-width:767px) {
+
+    .menu-content {
+        margin: 48px 11px 50px 11px;
+    }
+
+    .sidebar {
+        width: 100%;
+        float: none;
+        margin-right: 0px;
+    }
+}
+
+.menubar {
+    margin-left: 240px;
+    float: none;
+}
+
+
+.menubar .menu-search {
+    width: 70%;
+    height: 32px;
+    display: inline-block;
+    border: 2px solid #3D1101;
+    text-align: right;
+    margin-right: 5%;
+    margin-bottom: 26px;
+}
+
+
+.menubar .menu-search .fa-search {
+    display: inline-block;
+    font-size: 19px;
+    color: white;
+    background: #3D1101;
+    width: 36px;
+    height: 28px;
+    line-height: 28px;
+    padding-right: 7px;
+}
+
+.menubar .search span {
+    font-size: 16px;
+}
+
+.menubar .search .bar {
+    display: inline-block;
+    border-right: 1px solid #3D1101;
+    width: 10px;
+    height: 14px;
+    margin-right: 10px;
+}
+
+.menubar .search .fa-shopping-cart {
+    margin-right: 10px;
+    font-size: 28px;
+    position: relative;
+}
+
+.menubar .search .qty {
+    width: 16px;
+    height: 16px;
+    background: #FF5E45;
+    color: white;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    right: -8px;
+    top: -4px;
+    border: 0.5px solid white;
+}
+
+@media (max-width:900px) {
+    .menubar {
+        text-align: right;
+    }
+
+    .menubar .menu-search {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+
+    .menubar .search span {
+        font-size: 16px;
+        display: inline-block;
+        margin-bottom: 25px;
+    }
+
+    .menubar .search .fa-shopping-cart {
+        font-size: 24px;
+    }
+
+}
+
+/* 可試著在767px 就變成單欄 modify by 2018.12.15 */
+@media(max-width:767px) {
+
+    .menubar {
+        width: 100%;
+        margin-left: 0;
+        text-align: right;
+    }
+
+    .menubar .menu-search {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .menubar .search span {
+        font-size: 16px;
+        display: inline-block;
+        margin-bottom: 28px;
+    }
+
+}
+
+
+.menubar .menu-list {
+    float: left;
+}
+
+.menubar .menu-list li {
+    width: 31.33333%;
+    float: left;
+    margin-right: 2%;
+    margin-bottom: 30px;
+    background: #EFE9E7;
+    box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.16);
+    position: relative;
+}
+
+/* 待確認 */
+.menubar .menu-list .img-height {
+    height: 10%;
+}
+
+.menubar .menu-list .fa-heart {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    font-size: 23px;
+    top: 9px;
+    left: 9px;
+}
+
+.menubar .menu-list .ribbon-wrap {
+    width: 106px;
+    height: 108px;
+    overflow: hidden;
+    /* border: 2px solid orange; */
+    position: absolute;
+    top: -5px;
+    right: -5px;
+
+}
+
+.menubar .menu-list .ribbon {
+    position: absolute;
+    top: 15px;
+    left: 28px;
+
+    width: 100px;
+    height: 20px;
+    background: #00CC99;
+
+    color: #FFFFFF;
+    line-height: 20px;
+    text-align: center;
+    transform: rotate(45deg);
+    font-size: 14px;
+    z-index: 5;
+}
+
+.menubar .menu-list .ribbon::before {
+    content: "";
+    border: 6px solid transparent;
+    border-bottom-color: rgb(4, 158, 119);
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 14px;
+    left: -3px;
+}
+
+.menubar .menu-list .ribbon::after {
+    content: "";
+    border: 6px solid transparent;
+    border-left-color: #078F6D;
+    transform: rotate(-45deg);
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+
+}
+
+.menubar .menu-list img {
+    margin-bottom: 11px;
+
+}
+
+.menubar .menu-list h4 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.menubar .menu-list span {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.menubar .menu-list hr {
+    width: 91px;
+    color: #3D1101;
+    border: 0.5px solid #3D1101;
+    margin-bottom: 20px;
+}
+
+.menubar .menu-list .price {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 13px;
+}
+
+.menubar .menu-list .cart {
+    text-align: center;
+    color: #FF5E45;
+    border: 2px solid #FF5E45;
+    border-radius: 3px;
+    margin: 0 11px 10px 9px;
+    padding: 4px 0 4px 0;
+}
+
+.menubar .menu-list .cart:hover {
+    background: #FF5E45;
+    color: white;
+    cursor: pointer;
+
+}
+
+.menubar .menu-list .fa-shopping-cart {
+    font-size: 13px;
+}
+
+@media(max-width:900px) {
+
+    .menubar .menu-list li {
+        width: 46.33333%;
+        margin-right: 3%;
+    }
+
+    .menubar .menu-list .fa-heart {
+        font-size: 20px;
+    }
+
+    .menubar .menu-list h5 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .menubar .menu-list span {
+        font-size: 10px;
+    }
+
+
+    .menubar .menu-list .cart {
+        text-align: center;
+        color: #FF5E45;
+        border: 2px solid #FF5E45;
+        border-radius: 3px;
+        margin: 0 11px 10px 9px;
+        padding: 4px 0 4px 0;
+    }
+
+    .menubar .menu-list .cart:hover {
+        background: #FF5E45;
+        color: white;
+        cursor: pointer;
+
+    }
+
+    .menubar .menu-list .fa-shopping-cart {
+        font-size: 13px;
+    }
+}
+
+/* 可試著在767px 就變成單欄 modify by 2018.12.15 */
+@media(max-width:767px) {
+    .menubar .menu-list {
+        float: none;
+    }
+
+    .menubar .menu-list li {
+        width: 100%;
+    }
+
+    .menubar .menu-list img {
+        width: 100%;
+    }
+
+    .menubar .menu-list .fa-heart {
+        font-size: 30px;
+    }
+
+    .menubar .menu-list .ribbon {
+        top: 22px;
+        left: 10px;
+        width: 130px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 18px;
+    }
+
+    .menubar .menu-list .ribbon::before {
+        top: 21px;
+        left: -6px;
+    }
+
+    .menubar .menu-list .ribbon::after {
+        position: absolute;
+        bottom: -6px;
+        right: 0px;
+    }
+}
+
+
+/* 
+==========================================================
+---------------------- menu content end --------------
+==========================================================
+*/
+
+
+
+
+/* 
+==========================================================
+---------------------- login content start --------------
+==========================================================
+*/
+
+.login {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+
+}
+
+.login .logo_brown {
+    display: block;
+    margin: 0 auto 5px auto;
+}
+
+.login>p {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.login .form-login {
+    background: #EFE9E7;
+    box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.16);
+    border-top: 3px solid #FF5E45;
+    padding: 15px;
+}
+
+.login .form-login>p {
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: center;
+
+}
+
+.login label {
+    font-size: 16px;
+    margin-bottom: 3px;
+    margin-top: 16px;
+}
+
+.login input {
+    min-width: 90%;
+    height: 32px;
+}
+
+.login a {
+    display: block;
+    text-decoration: none;
+    color: #F56C23;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.login .sign-up {
+    width: 125px;
+    height: 32px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.login .sign-in {
+    width: 125px;
+    height: 32px;
+    font-size: 14px;
+    background: #F56C23;
+    border-radius: 3px;
+}
+
+/* 
+==========================================================
+---------------------- login content end --------------
+==========================================================
+*/
