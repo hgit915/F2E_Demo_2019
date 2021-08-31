@@ -44,7 +44,7 @@ $( document ).ready(function() {
     selected_zone.addEventListener('change', updateList, false);
 
 
-    //渲染熱門行政區畫面
+    //渲染熱門行政區畫面 
     //若localStorage是空的,則不渲染畫面
     if (JSON.parse(localStorage.getItem('zone')) != null) {
         show_popular_zone()
